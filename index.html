@@ -11,13 +11,16 @@
 "use strict";
 
 function palindrome(str) {
+  //remove all non alphanumric characters & convert to lowercase
   const cleanStr = str
     .toLowerCase()
     .split('')
     .filter(element => /[a-z0-9]/.test(element)).join('');
 
+  //Create a reversal off the clean string
   const revStr = (str, x) => x < 0 ? "" : str[x].concat(revStr(str, x - 1));
 
+  //Return the boolean value of comparison of the clean and reversed clean strings
   return revStr(cleanStr, cleanStr.length - 1) === cleanStr;
 }
 
