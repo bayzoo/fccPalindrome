@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+
+<body>
+<div id="demo"></div>
+<div id="test"></div>
+
+<script>
+"use strict";
+
+function palindrome(str) {
+  const cleanStr = str
+    .toLowerCase()
+    .split('')
+    .filter(element => /[a-z0-9]/.test(element)).join('');
+
+  const revStr = (str, x) => x < 0 ? "" : str[x].concat(revStr(str, x - 1));
+
+  return revStr(cleanStr, cleanStr.length - 1) === cleanStr;
+}
+
+console.log(palindrome("1 eye for of 1 eye."));
+
+
+
+</script>
+
+</body>
+</html>
